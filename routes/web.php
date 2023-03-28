@@ -13,7 +13,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/', 'welcome');
+
+Route::get('/new-page', function () {
+    return view('test.new-page');
+});
+
+Route::view('/', 'home.index')->name('home');
 
 Route::redirect('/home', '/');
 
@@ -28,7 +33,7 @@ Route::get('/login', [LoginController::class, 'index' ])->name('login');
 Route::post('/login', [LoginController::class, 'store' ])->name('login.store');
 
 
-Route::get('/blog', [BlogController::class, 'index' ])->name('blog.index');
+Route::get('/blog', [BlogController::class, 'index' ])->name('blog');
 Route::get('/blog/{post}', [BlogController::class, 'show' ])->name('blog.show');
 
 

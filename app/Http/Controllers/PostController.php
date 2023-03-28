@@ -8,30 +8,30 @@ class PostController extends Controller
 {
     public function index()
     {
-        return 'list of the posts';
+        return view('user.posts.index');
     }
 
     public function create()
     {
-        return 'create';
+        return view('user.posts.create');
     }
 
     public function store()
     {
-        return 'save';
+        return view('user.posts.store');
     }
 
     public function show($post)
     {
-        return "show {$post}";
+        return view('user.posts.show', compact('post'));
     }
 
-    public function edit()
+    public function edit($post)
     {
-        return 'edit';
+        return view('user.posts.edit', compact('post'));
     }
 
-    public function update()
+    public function update($post)
     {
         return 'update';
     }
