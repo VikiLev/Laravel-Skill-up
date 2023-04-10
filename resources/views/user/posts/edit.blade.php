@@ -6,9 +6,14 @@
 @section('content')
     <h1> Edit post </h1>
 
-    <x-form action="{{ route('user.posts.update', $post->id) }}" method="POST">
+    <x-form action="{{ route('user.posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div>
+            @if($post->image)
+                <img src="{{url('storage/posts/'.$post->image)}} " height="100" width="100">
+            @endif
+        </div>
         <div>
             <label>
                 {{ __('Title') }}
@@ -20,6 +25,9 @@
                 {{ __('content') }}
             </label>
             <textarea name="content" rows="10" >{{ $post->content}}</textarea>
+        </div>
+        <div>
+            <input id="image" type="file" name="image">
         </div>
         <button type="submit">save</button>
     </x-form>

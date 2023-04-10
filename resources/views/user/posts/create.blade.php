@@ -6,7 +6,7 @@
 @section('content')
     <h1> Create post </h1>
 
-    <x-form action="{{ route('user.posts.store') }}" method="POST">
+    <x-form action="{{ route('user.posts.store') }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div>
             <label>
@@ -19,6 +19,9 @@
                 {{ __('content') }}
             </label>
             <textarea name="content" rows="10"></textarea>
+        </div>
+        <div>
+            <input id="image" type="file" name="image">
         </div>
         <button type="submit">save</button>
     </x-form>

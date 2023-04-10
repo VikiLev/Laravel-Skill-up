@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield('page.title')</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="antialiased">
-@include('includes.header')
+<body class="font-sans antialiased">
+
+{{--@include('includes.header')--}}
+<div class="min-h-screen bg-gray-100">
+    @include('layouts.navigation')
 
 
-<main>
+    <main>
 
-    @yield('content')
+        @yield('content')
 
-</main>
+    </main>
+</div>
 @include('includes.footer')
 </body>
 </html>

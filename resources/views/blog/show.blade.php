@@ -9,6 +9,11 @@
         {{ $post->content }}
     </div>
     <div>
+        @if($post->image)
+            <img src="{{url('storage/posts/'.$post->image)}} " height="100" width="100">
+        @endif
+    </div>
+    <div>
         <a href="{{ route('blog') }}">
            Back
         </a>

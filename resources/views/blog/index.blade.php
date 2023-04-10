@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <h1> list of posts </h1>
-    
+
     <form action="{{ route('blog') }}" method="get">
         <div>
             <input type="search" id="search" name="search" value="{{ request('search') }}" />
@@ -28,6 +28,11 @@
 
     @else
         @foreach($posts as $post)
+            <div>
+                @if($post->image)
+                    <img src="{{url('storage/posts/'.$post->image)}} " height="100" width="100">
+                @endif
+            </div>
             <div>
                 <a href="{{ route('blog.show', $post->id) }}">
                     {{ $post->title }}

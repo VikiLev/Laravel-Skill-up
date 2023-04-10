@@ -1,10 +1,5 @@
 <header>
     <div>
-        <a href="{{ route('home') }}">
-            {{ __('Home') }}
-        </a>
-    </div>
-    <div>
         <a href="{{ route('blog') }}">
             {{ __('Blog') }}
         </a>

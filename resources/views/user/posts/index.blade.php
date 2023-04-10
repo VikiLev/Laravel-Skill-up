@@ -12,6 +12,11 @@
     @else
         @foreach($posts as $post)
             <div>
+                @if($post->image)
+                    <img src="{{url('storage/posts/'.$post->image)}} " height="100" width="100">
+                @endif
+            </div>
+            <div>
                 <a href="{{ route('user.posts.show', $post->id) }}">
                     {{ $post->title }}
                 </a>
